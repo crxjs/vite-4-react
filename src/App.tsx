@@ -2,6 +2,11 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
+const getURL = chrome.runtime.getURL ?? ((path: string) => path)
+
+const reactLogoUrl = getURL(reactLogo);
+const viteLogoUrl = getURL("/vite.svg")
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -9,10 +14,10 @@ function App() {
     <div className="App">
       <div>
         <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
+          <img src={viteLogoUrl} className="logo" alt="Vite logo" />
         </a>
         <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogoUrl} className="logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React + CRXJS</h1>

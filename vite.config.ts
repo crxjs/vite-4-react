@@ -7,6 +7,7 @@ const manifest = defineManifest({
   name: "test-react-vite-4",
   version: "1.0.0",
   action: { default_popup: "index.html" },
+  content_scripts: [{ js: ["src/main.tsx"], matches: ["https://*/*"] }],
 });
 
 // https://vitejs.dev/config/
